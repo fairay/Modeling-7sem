@@ -29,12 +29,12 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -66,9 +66,10 @@ namespace WindowsFormsApp1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Javanese Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(192, 15);
+            this.label1.Location = new System.Drawing.Point(288, 23);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(203, 29);
+            this.label1.Size = new System.Drawing.Size(311, 45);
             this.label1.TabIndex = 4;
             this.label1.Text = "Графики распределения";
             // 
@@ -77,10 +78,11 @@ namespace WindowsFormsApp1
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("Javanese Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(566, 15);
+            this.tabControl1.Location = new System.Drawing.Point(849, 23);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(308, 456);
+            this.tabControl1.Size = new System.Drawing.Size(462, 702);
             this.tabControl1.TabIndex = 3;
             this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
@@ -91,10 +93,11 @@ namespace WindowsFormsApp1
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.numericUpDown1);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 38);
+            this.tabPage1.Location = new System.Drawing.Point(4, 54);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(300, 414);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage1.Size = new System.Drawing.Size(454, 644);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Равномерное";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -102,9 +105,10 @@ namespace WindowsFormsApp1
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Javanese Text", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(10, 100);
+            this.label5.Location = new System.Drawing.Point(15, 154);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 44);
+            this.label5.Size = new System.Drawing.Size(102, 68);
             this.label5.TabIndex = 4;
             this.label5.Text = "b";
             // 
@@ -112,7 +116,8 @@ namespace WindowsFormsApp1
             // 
             this.numericUpDown2.DecimalPlaces = 3;
             this.numericUpDown2.Font = new System.Drawing.Font("Javanese Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown2.Location = new System.Drawing.Point(80, 100);
+            this.numericUpDown2.Location = new System.Drawing.Point(120, 154);
+            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -124,7 +129,7 @@ namespace WindowsFormsApp1
             0,
             -2147483648});
             this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(204, 44);
+            this.numericUpDown2.Size = new System.Drawing.Size(306, 62);
             this.numericUpDown2.TabIndex = 3;
             this.numericUpDown2.ThousandsSeparator = true;
             this.numericUpDown2.Value = new decimal(new int[] {
@@ -137,9 +142,10 @@ namespace WindowsFormsApp1
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Javanese Text", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(10, 50);
+            this.label4.Location = new System.Drawing.Point(15, 77);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 44);
+            this.label4.Size = new System.Drawing.Size(102, 68);
             this.label4.TabIndex = 2;
             this.label4.Text = "a";
             // 
@@ -148,7 +154,8 @@ namespace WindowsFormsApp1
             this.numericUpDown1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.numericUpDown1.DecimalPlaces = 3;
             this.numericUpDown1.Font = new System.Drawing.Font("Javanese Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(80, 50);
+            this.numericUpDown1.Location = new System.Drawing.Point(120, 77);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -160,7 +167,7 @@ namespace WindowsFormsApp1
             0,
             -2147483648});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(204, 40);
+            this.numericUpDown1.Size = new System.Drawing.Size(306, 58);
             this.numericUpDown1.TabIndex = 1;
             this.numericUpDown1.Value = new decimal(new int[] {
             5,
@@ -172,9 +179,10 @@ namespace WindowsFormsApp1
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 3);
+            this.label2.Location = new System.Drawing.Point(4, 5);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(282, 29);
+            this.label2.Size = new System.Drawing.Size(437, 45);
             this.label2.TabIndex = 0;
             this.label2.Text = "Равномерное распределение R(a, b)";
             // 
@@ -185,10 +193,11 @@ namespace WindowsFormsApp1
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.numericUpDown4);
             this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 38);
+            this.tabPage2.Location = new System.Drawing.Point(4, 54);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(300, 414);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage2.Size = new System.Drawing.Size(454, 644);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Нормальное";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -196,9 +205,10 @@ namespace WindowsFormsApp1
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Javanese Text", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(10, 100);
+            this.label6.Location = new System.Drawing.Point(15, 154);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 44);
+            this.label6.Size = new System.Drawing.Size(102, 68);
             this.label6.TabIndex = 8;
             this.label6.Text = "σ";
             // 
@@ -206,12 +216,8 @@ namespace WindowsFormsApp1
             // 
             this.numericUpDown3.DecimalPlaces = 3;
             this.numericUpDown3.Font = new System.Drawing.Font("Javanese Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown3.Increment = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.numericUpDown3.Location = new System.Drawing.Point(80, 100);
+            this.numericUpDown3.Location = new System.Drawing.Point(120, 154);
+            this.numericUpDown3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDown3.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -221,9 +227,9 @@ namespace WindowsFormsApp1
             1,
             0,
             0,
-            983040});
+            196608});
             this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(204, 44);
+            this.numericUpDown3.Size = new System.Drawing.Size(306, 62);
             this.numericUpDown3.TabIndex = 7;
             this.numericUpDown3.ThousandsSeparator = true;
             this.numericUpDown3.Value = new decimal(new int[] {
@@ -236,9 +242,10 @@ namespace WindowsFormsApp1
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Javanese Text", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(10, 50);
+            this.label7.Location = new System.Drawing.Point(15, 77);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 44);
+            this.label7.Size = new System.Drawing.Size(102, 68);
             this.label7.TabIndex = 6;
             this.label7.Text = "m";
             // 
@@ -246,7 +253,8 @@ namespace WindowsFormsApp1
             // 
             this.numericUpDown4.DecimalPlaces = 3;
             this.numericUpDown4.Font = new System.Drawing.Font("Javanese Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown4.Location = new System.Drawing.Point(80, 50);
+            this.numericUpDown4.Location = new System.Drawing.Point(120, 77);
+            this.numericUpDown4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDown4.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -258,70 +266,75 @@ namespace WindowsFormsApp1
             0,
             -2147483648});
             this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(204, 44);
+            this.numericUpDown4.Size = new System.Drawing.Size(306, 62);
             this.numericUpDown4.TabIndex = 5;
             this.numericUpDown4.ValueChanged += new System.EventHandler(this.numericUpDown4_ValueChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 3);
+            this.label3.Location = new System.Drawing.Point(4, 5);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(291, 29);
+            this.label3.Size = new System.Drawing.Size(457, 45);
             this.label3.TabIndex = 1;
             this.label3.Text = "Нормальное распределение N(m, σ^2)";
             // 
             // chart3
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.chart3.Legends.Add(legend1);
-            this.chart3.Location = new System.Drawing.Point(12, 53);
+            this.chart3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.chart3.Titles.Add("Плостность распределения");
+            chartArea5.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea5);
+            legend5.Enabled = false;
+            legend5.Name = "Legend1";
+            this.chart3.Legends.Add(legend5);
+            this.chart3.Location = new System.Drawing.Point(18, 82);
+            this.chart3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chart3.Name = "chart3";
-            this.chart3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            series1.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            series1.YValuesPerPoint = 2;
-            this.chart3.Series.Add(series1);
-            this.chart3.Size = new System.Drawing.Size(545, 209);
+            this.chart3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            series5.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            series5.YValuesPerPoint = 2;
+            this.chart3.Series.Add(series5);
+            this.chart3.Size = new System.Drawing.Size(818, 322);
             this.chart3.TabIndex = 5;
             this.chart3.Text = "DensChart";
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(12, 262);
+            chartArea6.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea6);
+            this.chart1.Titles.Add("Распределение");
+            legend6.Enabled = false;
+            legend6.Name = "Legend1";
+            this.chart1.Legends.Add(legend6);
+            this.chart1.Location = new System.Drawing.Point(18, 403);
+            this.chart1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            series2.YValuesPerPoint = 2;
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(545, 209);
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            series6.YValuesPerPoint = 2;
+            this.chart1.Series.Add(series6);
+            this.chart1.Size = new System.Drawing.Size(818, 322);
             this.chart1.TabIndex = 6;
             this.chart1.Text = "DensChart";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(886, 482);
+            this.ClientSize = new System.Drawing.Size(1329, 755);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.chart3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Моделирование. Лабораторная 1.";
             this.tabControl1.ResumeLayout(false);

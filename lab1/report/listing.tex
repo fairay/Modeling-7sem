@@ -1,0 +1,57 @@
+В листинге \ref{lst:prog} представлен фрагмент кода программы, отвечающий за вычисление значений функций для различных распределений.
+
+\begin{lstlisting}[caption = {Вычисление функций распредлений}, label=lst:prog]
+public abstract class IDist
+{
+	public abstract double DistVal(double x);
+	public abstract double DensVal(double x);
+}
+
+public class EvalDist: IDist
+{
+	private double a;
+	private double b;
+	private double p;
+	
+	public EvalDist(double a_, double b_)
+	{
+		a = a_;
+		b = b_;
+		p = 1 / (b - a);
+	}
+	
+	public override double DistVal(double x)
+	{
+		return Math.Max(Math.Min((x - a)*p, 1), 0);
+	}
+	
+	public override double DensVal(double x)
+	{
+		if (a <= x && x <= b) return p;
+		else return 0;
+	}
+}
+
+public class NormDist : IDist
+{
+	private double m;
+	private double sig;
+	
+	public NormDist(double m_, double sig_)
+	{
+		m = m_;
+		sig = sig_;
+	}
+	
+	public override double DistVal(double x)
+	{
+		return (1 + SpecialFunctions.Erf((x - m) / (sig * Math.Sqrt(2)))) / 2;
+	}
+	
+	public override double DensVal(double x)
+	{
+		return (1 / (sig * Math.Sqrt(2 * Math.PI))) *
+		Math.Exp(-(x-m) * (x-m) / 2 / sig / sig);
+	}
+}
+\end{lstlisting}
