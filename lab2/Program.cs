@@ -20,8 +20,9 @@ namespace lab2
             this.tMatrix = new double[maxN, maxN];
             this.tArr = new double[maxN];
             this.pArr = new double[maxN];
-            for (int i = 0; i < n; i++)
-                pArr[i] = 1.0 / n;
+            pArr[0] = 1;
+            //for (int i = 0; i < n; i++)
+                // pArr[i] = 1.0 / n;
         }
 
         // returns is stabilized
@@ -43,14 +44,14 @@ namespace lab2
             pArr = newP;
             T += dt;
 
-            setStable();
+            SetStableT();
             return isSt;
         }
 
         private bool IsStable(double[] oldP, double[] newP)
         {
             for (int i = 0; i < n; i++)
-                if (Math.Abs(oldP[i] - newP[i]) / newP[i] > 1e-10)
+                if (Math.Abs(oldP[i] - newP[i]) / newP[i] > 1e-7)
                     return false;
             return true;
         }
@@ -69,13 +70,17 @@ namespace lab2
             return res;
         }
 
-        private void setStable()
+        private void SetStableT()
         {
             double[] kArr = Kolmogorov();
+            Console.WriteLine("{0} {1}", Math.Abs(kArr[0]), tArr[0]);
             for (int i = 0; i < n; i++)
             {
                 if (Math.Abs(kArr[i]) < 1e-5 && tArr[i] <= 1e-7)
+                {
+                    Console.WriteLine("@@@ {0} {1}", i, T);
                     tArr[i] = T;
+                }
                 else if (Math.Abs(kArr[i]) > 1e-5 && tArr[i] > 1e-7)
                     tArr[i] = 0;
             }
@@ -107,9 +112,9 @@ namespace lab2
             Console.WriteLine("[{0}]", string.Join(", ", m.pArr));
             while (!m.Step(0.01))
                 Console.WriteLine("{0}\t[{1}]\t[{2}]", m.T, string.Join(", ", m.pArr), string.Join(", ", m.Kolmogorov()));
+
             Console.WriteLine("Done: [{0}]", string.Join(", ", m.pArr));
             Console.WriteLine("Done: [{0}]", string.Join(", ", m.tArr));
-            return;
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
