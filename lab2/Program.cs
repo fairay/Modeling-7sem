@@ -50,8 +50,9 @@ namespace lab2
 
         private bool IsStable(double[] oldP, double[] newP)
         {
+            double[] res = Kolmogorov();
             for (int i = 0; i < n; i++)
-                if (Math.Abs(oldP[i] - newP[i]) / newP[i] > 1e-7)
+                if (Math.Abs(res[i]) > 1e-8)
                     return false;
             return true;
         }
@@ -73,14 +74,10 @@ namespace lab2
         private void SetStableT()
         {
             double[] kArr = Kolmogorov();
-            Console.WriteLine("{0} {1}", Math.Abs(kArr[0]), tArr[0]);
             for (int i = 0; i < n; i++)
             {
                 if (Math.Abs(kArr[i]) < 1e-5 && tArr[i] <= 1e-7)
-                {
-                    Console.WriteLine("@@@ {0} {1}", i, T);
                     tArr[i] = T;
-                }
                 else if (Math.Abs(kArr[i]) > 1e-5 && tArr[i] > 1e-7)
                     tArr[i] = 0;
             }
@@ -95,26 +92,26 @@ namespace lab2
         [STAThread]
         static void Main()
         {
-            Model m = new Model(6);
+            //Model m = new Model(6);
 
-            m.tMatrix[0, 1] = 0.1;
-            m.tMatrix[1, 2] = 0.1;
-            m.tMatrix[2, 3] = 0.1;
-            m.tMatrix[3, 4] = 0.1;
-            m.tMatrix[4, 5] = 0.1;
+            //m.tMatrix[0, 1] = 0.1;
+            //m.tMatrix[1, 2] = 0.1;
+            //m.tMatrix[2, 3] = 0.1;
+            //m.tMatrix[3, 4] = 0.1;
+            //m.tMatrix[4, 5] = 0.1;
 
-            m.tMatrix[1, 0] = 0.1;
-            m.tMatrix[2, 1] = 0.2;
-            m.tMatrix[3, 2] = 0.3;
-            m.tMatrix[4, 3] = 0.4;
-            m.tMatrix[5, 4] = 0.5;
+            //m.tMatrix[1, 0] = 0.1;
+            //m.tMatrix[2, 1] = 0.2;
+            //m.tMatrix[3, 2] = 0.3;
+            //m.tMatrix[4, 3] = 0.4;
+            //m.tMatrix[5, 4] = 0.5;
 
-            Console.WriteLine("[{0}]", string.Join(", ", m.pArr));
-            while (!m.Step(0.01))
-                Console.WriteLine("{0}\t[{1}]\t[{2}]", m.T, string.Join(", ", m.pArr), string.Join(", ", m.Kolmogorov()));
+            //Console.WriteLine("[{0}]", string.Join(", ", m.pArr));
+            //while (!m.Step(0.01))
+            //    Console.WriteLine("{0}\t[{1}]\t[{2}]", m.T, string.Join(", ", m.pArr), string.Join(", ", m.Kolmogorov()));
 
-            Console.WriteLine("Done: [{0}]", string.Join(", ", m.pArr));
-            Console.WriteLine("Done: [{0}]", string.Join(", ", m.tArr));
+            //Console.WriteLine("Done: [{0}]", string.Join(", ", m.pArr));
+            //Console.WriteLine("Done: [{0}]", string.Join(", ", m.tArr));
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
