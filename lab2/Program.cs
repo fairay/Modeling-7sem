@@ -21,8 +21,6 @@ namespace lab2
             this.tArr = new double[maxN];
             this.pArr = new double[maxN];
             pArr[0] = 1;
-            //for (int i = 0; i < n; i++)
-                // pArr[i] = 1.0 / n;
         }
 
         // returns is stabilized

@@ -1,0 +1,4 @@
+\babel@toc {russian}{}
+\contentsline {chapter}{\numberline {1}Условие}{3}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Теория}{4}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Реализация}{5}{chapter.3}%

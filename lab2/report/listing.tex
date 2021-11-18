@@ -1,0 +1,78 @@
+В листинге \ref{lst:prog} представлен фрагмент кода программы, отвечающий за моделирование цепей Маркова.
+
+\begin{lstlisting}[caption = {Вычисление функций распредлений}, label=lst:prog]
+class Model
+{
+	public const int maxN = 10;
+	public double[] pArr;
+	public double[] tArr;
+	public double[,] tMatrix;
+	public int n { get; }
+	public double T = 0;
+	
+	public Model(int n_)
+	{
+		this.n = n_;
+		this.tMatrix = new double[maxN, maxN];
+		this.tArr = new double[maxN];
+		this.pArr = new double[maxN];
+		pArr[0] = 1;
+	}
+	
+	// returns is stabilized
+	public bool Step(double dt)
+	{
+		double[] newP = new double[maxN];
+		for (int i=0; i < n; i++)
+		{
+			newP[i] = pArr[i];
+			for (int j = 0; j < n; j++)
+			{
+				if (i == j) continue;
+				newP[i] += dt * (pArr[j] * tMatrix[j, i] - pArr[i] * tMatrix[i, j]);
+			}
+		}
+				
+		pArr = newP;
+		T += dt;
+		
+		SetStableT();
+		return IsStable();
+	}
+	
+	private bool IsStable()
+	{
+		double[] res = Kolmogorov();
+			for (int i = 0; i < n; i++)
+				if (Math.Abs(res[i]) > 1e-8)
+					return false;
+		return true;
+	}
+	
+	public double[] Kolmogorov()
+	{
+		double[] res = new double[maxN];
+		
+		for (int i = 0; i < n; i++)
+		{
+			res[i] = 0;
+			for (int j = 0; j < n; j++)
+			res[i] += pArr[j] * tMatrix[j, i] - pArr[i] * tMatrix[i, j];
+		}
+		
+		return res;
+	}
+	
+	private void SetStableT()
+	{
+		double[] kArr = Kolmogorov();
+		for (int i = 0; i < n; i++)
+		{
+			if (Math.Abs(kArr[i]) < 1e-5 && tArr[i] <= 1e-7)
+			tArr[i] = T;
+			else if (Math.Abs(kArr[i]) > 1e-5 && tArr[i] > 1e-7)
+			tArr[i] = 0;
+		}
+	}
+}
+\end{lstlisting}

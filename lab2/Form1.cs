@@ -161,7 +161,7 @@ namespace lab2
             for (int i = 0; i < m.n; i++)
             {
                 chart1.Series[m.n].Points.AddXY(m.tArr[i], m.pArr[i]);
-                inputP[i].Text = Math.Round(m.pArr[i], 2).ToString();
+                inputP[i].Text = Math.Round(m.pArr[i], 3).ToString();
                 inputT[i].Text = Math.Round(m.tArr[i], 1).ToString();
             }
         }
@@ -181,6 +181,11 @@ namespace lab2
                 inputP[i].Visible = (i < n);
                 inputT[i].Visible = (i < n);
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
