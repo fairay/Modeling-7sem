@@ -39,6 +39,7 @@ namespace lab3
             this.label3 = new System.Windows.Forms.Label();
             this.inp_panel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // alg1
@@ -127,11 +128,23 @@ namespace lab3
             this.label1.Text = "Ввод";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.button1.Location = new System.Drawing.Point(650, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 56);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Ввод";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(768, 508);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.inp_panel);
             this.Controls.Add(this.label3);
@@ -160,6 +173,7 @@ namespace lab3
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel inp_panel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using Accord.Math;
+using MathNet.Numerics.Distributions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +11,8 @@ namespace lab3
 {
     public abstract class IRndGen
     {
+        public int MaxN;
+        public int MinN;
         public abstract void SetSid(int s);
         public abstract int Rand();
         public abstract int[] RandArr(int size);
@@ -16,9 +20,6 @@ namespace lab3
 
     class RndAlgGen: IRndGen
     {
-        private int MaxN { get; }
-        private int MinN { get; }
-        
         private int seed;
         public RndAlgGen(int minN, int maxN, int s=0)
         {
@@ -50,9 +51,6 @@ namespace lab3
 
     class RndTabGen : IRndGen
     {
-        private int MaxN { get; }
-        private int MinN { get; }
-
         private int seed;
         private StreamReader f;
         private string fpath;
@@ -72,6 +70,7 @@ namespace lab3
             MaxN = maxN;
             fpath = fp;
             SetSid(s);
+            var chi = new ChiSquared(1.0);
         }
 
         private void OpenFile(string fp)
@@ -93,6 +92,11 @@ namespace lab3
         public override int Rand()
         {
             string fileStr = f.ReadLine();
+            if (fileStr == null)
+            {
+                SetSid(0);
+                fileStr = f.ReadLine();
+            }
             seed++;
             
             var res = (UInt32.Parse(fileStr)) % (MaxN - MinN) + MinN;
@@ -108,4 +112,40 @@ namespace lab3
         }
     }
 
+
+    class Crit
+    {
+        public int[] arr;
+        public Crit(int[] arr_)
+        {
+            arr = arr_; //.Take(21).ToArray();
+        }
+
+        public double Value(int min, int max)
+        {
+            //int n = arr.Sum();
+            //double e = n * (1.0 / arr.Length);
+
+            //double acc = 0;
+            //for (int i = 0; i < arr.Length; i++)
+            //    acc += (arr[i] - e) * (arr[i] - e) / e;
+
+            int n = arr.Length;
+            double p = 1.0 / (max - min);
+            double acc = 0;
+            for (int i = min; i < max; i++)
+            {
+                Console.WriteLine("{0} {1}", i, arr.Count(x => x == i));
+                acc += Math.Pow(arr.Count(x => x == i), 2) / p;
+            }
+            acc = acc / (double)n - n;
+
+            double res = 1 - ChiSquared.CDF(n - 1, acc);
+            
+            var chi = new Accord.Statistics.Testing.ChiSquareTest(acc, max - min - 1);
+            var j = chi.Significant;
+            var o = chi.PValue;
+            return chi.PValue;
+        }
+    }
 }

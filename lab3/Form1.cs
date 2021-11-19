@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -48,7 +49,7 @@ namespace lab3
             {
                 inFields[j] = new TextBox
                 {
-                    Text = "000",
+                    Text = "0",
                     BackColor = Color.Azure,
                     Name = j.ToString() + "in",
                     AutoSize = false,
@@ -69,14 +70,32 @@ namespace lab3
             var r = new Random();
             IRndGen[] gen = new IRndGen[] { 
                 new RndAlgGen(0, 10, r.Next()), new RndAlgGen(10, 100, r.Next()), new RndAlgGen(100, 1000, r.Next()),
-                new RndTabGen(0, 10, "1.txt", r.Next()%100), new RndTabGen(10, 100, "2.txt", r.Next()%100), new RndTabGen(100, 1000, "3.txt", r.Next()%100),
+                new RndTabGen(0, 10, "1.txt", r.Next()%10000), new RndTabGen(10, 100, "2.txt", r.Next()%10000), new RndTabGen(100, 1000, "3.txt", r.Next()%10000),
+            };
+            string[] fPathArr = { 
+                "alg1.txt", "alg2.txt", "alg3.txt", 
+                "tab1.txt", "tab2.txt", "tab3.txt" 
             };
 
             for (int i = 0; i < 6; i++)
             {
                 int[] valArr = gen[i].RandArr(1000);
+                WriteFile(fPathArr[i], valArr);
                 for (int j = 0; j < 10; j++)
                     outFields[i, j].Text = valArr[j].ToString();
+
+                var crt = new Crit(valArr);
+                outFields[i, 10].Text = crt.Value(gen[i].MinN, gen[i].MaxN).ToString();
+                Console.WriteLine(crt.Value(gen[i].MinN, gen[i].MaxN));
+            }
+        }
+
+        private void WriteFile(string fpath, int[] arr)
+        {
+            using (StreamWriter sw = File.CreateText(fpath))
+            {
+                for (int i = 0; i < 1000; i++)
+                    sw.WriteLine(arr[i]);
             }
         }
 
@@ -84,6 +103,20 @@ namespace lab3
         {
             Panel p = (Panel)sender;
             ControlPaint.DrawBorder(e.Graphics, p.ClientRectangle, Color.DarkGray, ButtonBorderStyle.Solid);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int[] val = new int[10];
+            for (int i = 0; i < 10; i++)
+            {
+                var inStr = inFields[i].Text;
+                if (inStr.Length == 0) inStr = "0";
+                val[i] = Convert.ToInt32(inFields[i].Text);
+            }
+
+            var c = new Crit(val);
+            inFields[10].Text = c.Value(0, 10).ToString();
         }
     }
 }
