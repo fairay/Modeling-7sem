@@ -156,7 +156,7 @@ namespace lab3
             this.Controls.Add(this.alg2);
             this.Controls.Add(this.alg1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Лабораторная работа 3";
             this.ResumeLayout(false);
 
         }

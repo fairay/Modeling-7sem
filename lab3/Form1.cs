@@ -50,6 +50,7 @@ namespace lab3
                 inFields[j] = new TextBox
                 {
                     Text = "0",
+                    MaxLength = 1,
                     BackColor = Color.Azure,
                     Name = j.ToString() + "in",
                     AutoSize = false,
@@ -112,7 +113,7 @@ namespace lab3
             {
                 var inStr = inFields[i].Text;
                 if (inStr.Length == 0) inStr = "0";
-                val[i] = Convert.ToInt32(inFields[i].Text);
+                val[i] = Convert.ToInt32(inStr);
             }
 
             var c = new Crit(val);

@@ -118,34 +118,20 @@ namespace lab3
         public int[] arr;
         public Crit(int[] arr_)
         {
-            arr = arr_; //.Take(21).ToArray();
+            arr = arr_;
         }
 
         public double Value(int min, int max)
         {
-            //int n = arr.Sum();
-            //double e = n * (1.0 / arr.Length);
-
-            //double acc = 0;
-            //for (int i = 0; i < arr.Length; i++)
-            //    acc += (arr[i] - e) * (arr[i] - e) / e;
-
             int n = arr.Length;
             double p = 1.0 / (max - min);
             double acc = 0;
             for (int i = min; i < max; i++)
-            {
-                Console.WriteLine("{0} {1}", i, arr.Count(x => x == i));
                 acc += Math.Pow(arr.Count(x => x == i), 2) / p;
-            }
             acc = acc / (double)n - n;
 
-            double res = 1 - ChiSquared.CDF(n - 1, acc);
-            
-            var chi = new Accord.Statistics.Testing.ChiSquareTest(acc, max - min - 1);
-            var j = chi.Significant;
-            var o = chi.PValue;
-            return chi.PValue;
+            double res = ChiSquared.CDF(max - min - 1, acc);
+            return res;
         }
     }
 }
