@@ -50,135 +50,135 @@ namespace lab4
             // 
             // aInp
             // 
-            this.aInp.Location = new System.Drawing.Point(258, 38);
+            this.aInp.Location = new System.Drawing.Point(201, 37);
             this.aInp.Margin = new System.Windows.Forms.Padding(5);
             this.aInp.Name = "aInp";
-            this.aInp.Size = new System.Drawing.Size(116, 40);
+            this.aInp.Size = new System.Drawing.Size(116, 29);
             this.aInp.TabIndex = 0;
-            this.aInp.Text = "3";
+            this.aInp.Text = "3.0";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(15, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 33);
+            this.label1.Size = new System.Drawing.Size(92, 21);
             this.label1.TabIndex = 1;
             this.label1.Text = "Генератор";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(218, 40);
+            this.label2.Location = new System.Drawing.Point(161, 39);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 33);
+            this.label2.Size = new System.Drawing.Size(22, 21);
             this.label2.TabIndex = 2;
             this.label2.Text = "a:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(392, 40);
+            this.label3.Location = new System.Drawing.Point(335, 39);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 33);
+            this.label3.Size = new System.Drawing.Size(24, 21);
             this.label3.TabIndex = 4;
             this.label3.Text = "b:";
             // 
             // bInp
             // 
-            this.bInp.Location = new System.Drawing.Point(432, 38);
+            this.bInp.Location = new System.Drawing.Point(375, 37);
             this.bInp.Margin = new System.Windows.Forms.Padding(5);
             this.bInp.Name = "bInp";
-            this.bInp.Size = new System.Drawing.Size(116, 40);
+            this.bInp.Size = new System.Drawing.Size(116, 29);
             this.bInp.TabIndex = 3;
-            this.bInp.Text = "5";
+            this.bInp.Text = "5.0";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 280);
+            this.label4.Location = new System.Drawing.Point(15, 158);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 33);
+            this.label4.Size = new System.Drawing.Size(79, 21);
             this.label4.TabIndex = 5;
             this.label4.Text = "Очередь";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(392, 120);
+            this.label5.Location = new System.Drawing.Point(335, 80);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 33);
+            this.label5.Size = new System.Drawing.Size(24, 21);
             this.label5.TabIndex = 10;
             this.label5.Text = "σ:";
             // 
             // sigInp
             // 
-            this.sigInp.Location = new System.Drawing.Point(432, 116);
+            this.sigInp.Location = new System.Drawing.Point(375, 76);
             this.sigInp.Margin = new System.Windows.Forms.Padding(5);
             this.sigInp.Name = "sigInp";
-            this.sigInp.Size = new System.Drawing.Size(116, 40);
+            this.sigInp.Size = new System.Drawing.Size(116, 29);
             this.sigInp.TabIndex = 9;
-            this.sigInp.Text = "1";
+            this.sigInp.Text = "1.0";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(218, 120);
+            this.label6.Location = new System.Drawing.Point(161, 80);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 33);
+            this.label6.Size = new System.Drawing.Size(24, 21);
             this.label6.TabIndex = 8;
             this.label6.Text = "μ:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(15, 120);
+            this.label7.Location = new System.Drawing.Point(15, 81);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 33);
+            this.label7.Size = new System.Drawing.Size(36, 21);
             this.label7.TabIndex = 7;
             this.label7.Text = "ОА";
             // 
             // muInp
             // 
-            this.muInp.Location = new System.Drawing.Point(258, 116);
+            this.muInp.Location = new System.Drawing.Point(201, 76);
             this.muInp.Margin = new System.Windows.Forms.Padding(5);
             this.muInp.Name = "muInp";
-            this.muInp.Size = new System.Drawing.Size(116, 40);
+            this.muInp.Size = new System.Drawing.Size(116, 29);
             this.muInp.TabIndex = 6;
-            this.muInp.Text = "3";
+            this.muInp.Text = "3.0";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(218, 200);
+            this.label9.Location = new System.Drawing.Point(161, 119);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(39, 33);
+            this.label9.Size = new System.Drawing.Size(25, 21);
             this.label9.TabIndex = 13;
             this.label9.Text = "P:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(15, 200);
+            this.label10.Location = new System.Drawing.Point(15, 120);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(195, 33);
+            this.label10.Size = new System.Drawing.Size(136, 21);
             this.label10.TabIndex = 12;
             this.label10.Text = "Обратная связь";
             // 
             // pInp
             // 
-            this.pInp.Location = new System.Drawing.Point(258, 196);
+            this.pInp.Location = new System.Drawing.Point(201, 115);
             this.pInp.Margin = new System.Windows.Forms.Padding(5);
             this.pInp.Name = "pInp";
-            this.pInp.Size = new System.Drawing.Size(116, 40);
+            this.pInp.Size = new System.Drawing.Size(116, 29);
             this.pInp.TabIndex = 11;
             this.pInp.Text = "0.0";
             // 
             // DTButton
             // 
-            this.DTButton.Location = new System.Drawing.Point(298, 360);
+            this.DTButton.Location = new System.Drawing.Point(298, 213);
             this.DTButton.Name = "DTButton";
-            this.DTButton.Size = new System.Drawing.Size(250, 40);
+            this.DTButton.Size = new System.Drawing.Size(193, 40);
             this.DTButton.TabIndex = 14;
             this.DTButton.Text = "Метод Δt";
             this.DTButton.UseVisualStyleBackColor = true;
@@ -186,9 +186,9 @@ namespace lab4
             // 
             // EventButton
             // 
-            this.EventButton.Location = new System.Drawing.Point(20, 360);
+            this.EventButton.Location = new System.Drawing.Point(20, 213);
             this.EventButton.Name = "EventButton";
-            this.EventButton.Size = new System.Drawing.Size(270, 40);
+            this.EventButton.Size = new System.Drawing.Size(241, 40);
             this.EventButton.TabIndex = 15;
             this.EventButton.Text = "Событийный метод";
             this.EventButton.UseVisualStyleBackColor = true;
@@ -196,19 +196,19 @@ namespace lab4
             // 
             // lenOut
             // 
-            this.lenOut.Location = new System.Drawing.Point(258, 277);
+            this.lenOut.Location = new System.Drawing.Point(201, 154);
             this.lenOut.Margin = new System.Windows.Forms.Padding(5);
             this.lenOut.Name = "lenOut";
             this.lenOut.ReadOnly = true;
-            this.lenOut.Size = new System.Drawing.Size(290, 40);
+            this.lenOut.Size = new System.Drawing.Size(290, 29);
             this.lenOut.TabIndex = 16;
-            this.lenOut.Text = "0.0";
+            this.lenOut.Text = "0";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(15F, 33F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(585, 424);
+            this.ClientSize = new System.Drawing.Size(503, 272);
             this.Controls.Add(this.lenOut);
             this.Controls.Add(this.EventButton);
             this.Controls.Add(this.DTButton);

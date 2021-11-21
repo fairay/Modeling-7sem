@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using MathNet.Numerics.Distributions;
-
 namespace lab4
 {
     class Request
@@ -65,12 +63,10 @@ namespace lab4
         public double FeedBackP { get; }
         public Request r;
         private Random rnd;
-        private Normal n;
         public Service(double mu, double sig, double fbP=0.0)
         {
             Mu = mu; Sig = sig;
             FeedBackP = fbP;
-            n = new Normal(Mu, Sig);
             rnd = new Random();
             r = null;
         }
@@ -101,7 +97,7 @@ namespace lab4
             Request oldR = r;
             r = null;
 
-            if (rnd.NextDouble() < FeedBackP) // roll rnd nubmer
+            if (rnd.NextDouble() < FeedBackP)
                 oldR = new Request(curT);
             return oldR;
         }
@@ -168,9 +164,9 @@ namespace lab4
             Serv = s;
         }
 
-        public int Run(double dT=0.01, double endT=100.0)
+        public int Run(double dT=0.01, double endT= 1e5)
         {
-            while (CurT - Que.PeakTime < 1000.0 * Gen.Aver() && CurT < 1e5)
+            while (CurT - Que.PeakTime < 1000.0 * Gen.Aver() && CurT < endT)
             {
                 HandleGenerator();
                 HandleService();
@@ -246,15 +242,17 @@ namespace lab4
             Events = new List<double> { g.WhenReady() };
         }
 
-        public int Run(double endT = 100.0)
+        public int Run(double endT = 1e5)
         {
-            while (CurT - Que.PeakTime < 1000.0 * Gen.Aver() && CurT < 1e5)
+            while (CurT - Que.PeakTime < 1000.0 * Gen.Aver() && CurT < endT)
             {
                 HandleGenerator();
                 HandleService();
+
                 CurT = Events.Min();
                 Events.Remove(CurT);
             }
+
             Console.WriteLine("{0} {1}", CurT, Que.PeakTime);
             if (CurT > 1e5)
             {
