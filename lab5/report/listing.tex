@@ -1,0 +1,126 @@
+В листинге \ref{lst:prog} представлен фрагмент кода программы, отвечающий за моделирование.
+
+\begin{lstlisting}[caption = {Реализация модели}, label=lst:prog]
+public class EGenerated : Event
+{
+	public EGenerated(double t_) : base(EventTypes.NewClient, t_) {}
+	public override void Handle(EventModel model)
+	{
+		Request req = model.Gen.New(model.CurT);
+		model.createdN++;
+		if (model.createdN < model.maxCreatedN)
+		model.AddEvent(new EGenerated(model.Gen.WhenReady()));
+		
+		for (int i = 0; i < model.Operators.Count; i++)
+		{
+			var oper = model.Operators[i];
+			if (oper.IsFree())
+			{
+				oper.Put(req, model.CurT);
+				model.AddEvent(new EOperatorServed(oper.WhenReady(), i));
+				return;
+			}
+		}
+		
+		model.denyedN++;
+	}
+}
+
+public class EOperatorServed: Event
+{
+	private int num;
+	public EOperatorServed(double t_, int num_) : base(EventTypes.OperatorServed, t_) 
+	{
+		this.num = num_;
+	}
+	
+	public override void Handle(EventModel model)
+	{
+		Request req = model.Operators[num].Get();
+		int targetQueue = (num == 3) ? 1 : 0;
+		model.CompQueue[targetQueue].Push(req, model.CurT);
+		if (model.Computers[targetQueue].IsFree())
+		model.AddEvent(new EComputerServed(model.CurT, targetQueue));
+	}
+}
+
+public class EComputerServed : Event
+{
+	private int num;
+	public EComputerServed(double t_, int num_) : base(EventTypes.ComputerServed, t_) 
+	{
+		this.num = num_;
+	}
+	public override void Handle(EventModel model)
+	{
+		Request req = model.Computers[num].Get();
+		if (req != null)
+		model.servedN++;
+		
+		if (model.CompQueue[num].Count == 0)
+		return;
+		req = model.CompQueue[num].Pop();
+		if (req != null)
+		{
+			model.Computers[num].Put(req, model.CurT);
+			model.AddEvent(new EComputerServed(model.Computers[num].WhenReady(), num));
+		}
+	}
+}
+
+public class EventModel
+{
+	public double CurT;
+	public Generator Gen;
+	public List<Service> Operators;
+	public List<Service> Computers;
+	public List<ReqQueue> CompQueue;
+	
+	public int createdN = 0;
+	public int servedN = 0;
+	public int denyedN = 0;
+	public int maxCreatedN = 300;
+	
+	private List<Event> Events;
+	
+	public EventModel(Generator generator, List<Service> operators, List<Service> computers)
+	{
+		Gen = generator;
+		Operators = operators;
+		Computers = computers;
+		CompQueue = new List<ReqQueue> { new ReqQueue(), new ReqQueue() };
+	}
+	
+	private void Reset()
+	{
+		createdN = 0;
+		servedN = 0;
+		denyedN = 0;
+		CurT = 0;
+		
+		Gen.New(CurT);
+		Events = new List<Event> { new EGenerated(Gen.WhenReady()) };
+	}
+	
+	public ModelingResult Run()
+	{
+		Reset();
+		while (Events.Count > 0)
+		{
+			Event e = this.Events[0];
+			this.Events.RemoveAt(0);
+			
+			CurT = e.time;
+			e.Handle(this);
+		}
+		
+		return new ModelingResult(this.servedN, this.denyedN, this.CurT);
+	}
+	
+	public void AddEvent(Event e)
+	{
+		Events.Add(e);
+		Events.Sort();
+	}
+}
+\end{lstlisting}

@@ -118,17 +118,24 @@ namespace lab5
     public class ModelingResult
     {
         public int served;
-        public int denyed;
+        public int denied;
+        public double time;
 
-        public ModelingResult(int s, int d)
+        public ModelingResult(int s, int d, double t)
         {
             served = s;
-            denyed = d;
+            denied = d;
+            time = t;
+        }
+
+        public double DeniedP()
+        {
+            return (double)denied / (served + denied);
         }
 
         override public string ToString()
         {
-            return $"{this.served} {this.denyed}";
+            return $"Обслужено: {this.served} \t Отказы: {this.denied} \t Pотк: {Math.Round(DeniedP(), 4)} \t Время моделирования: {this.time}";
         }
     }
 
@@ -180,7 +187,7 @@ namespace lab5
                 e.Handle(this);
             }
 
-            return new ModelingResult(this.servedN, this.denyedN);
+            return new ModelingResult(this.servedN, this.denyedN, this.CurT);
         }
 
         public void AddEvent(Event e)
