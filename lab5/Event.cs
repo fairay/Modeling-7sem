@@ -71,7 +71,7 @@ namespace lab5
         public override void Handle(EventModel model)
         {
             Request req = model.Operators[num].Get();
-            int targetQueue = (num == 3) ? 1 : 0;
+            int targetQueue = (num == 2) ? 1 : 0;
             model.CompQueue[targetQueue].Push(req, model.CurT);
             if (model.Computers[targetQueue].IsFree())
                 model.AddEvent(new EComputerServed(model.CurT, targetQueue));
