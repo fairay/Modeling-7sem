@@ -127,12 +127,14 @@ namespace lab6
         public int served;
         public int denied;
         public double time;
+        public List<ReqQueue> Queues;
 
-        public ModelingResult(int s, int d, double t)
+        public ModelingResult(int s, int d, double t, List<ReqQueue> q)
         {
             served = s;
             denied = d;
             time = t;
+            Queues = q;
         }
 
         public double DeniedP()
@@ -142,7 +144,7 @@ namespace lab6
 
         override public string ToString()
         {
-            return $"Обслужено: {this.served} \t Отказы: {this.denied} \t Pотк: {Math.Round(DeniedP(), 4)} \t Время моделирования: {this.time}";
+            return $"ЗАЧ/НЗ: {this.served}/{this.denied} \t Время моделирования: {this.time} \t Макс. очереди: {Queues[0].PeakLen}, {Queues[1].PeakLen}, {Queues[2].PeakLen}";
         }
     }
 
@@ -197,14 +199,7 @@ namespace lab6
                 e.Handle(this);
             }
 
-            Console.WriteLine(Queues[0].PeakLen);
-            Console.WriteLine(Queues[1].PeakLen);
-            Console.WriteLine(Queues[2].PeakLen);
-            Console.WriteLine();
-            Console.WriteLine(Queues[0].AllLen);
-            Console.WriteLine(Queues[1].AllLen);
-            Console.WriteLine(Queues[2].AllLen);
-            return new ModelingResult(this.servedN, this.denyedN, this.CurT);
+            return new ModelingResult(this.servedN, this.denyedN, this.CurT, this.Queues);
         }
 
         public void AddEvent(Event e)

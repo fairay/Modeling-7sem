@@ -52,7 +52,6 @@ namespace lab6
             {
                 case 0:
                     // Student goes to lab 1
-                    // Console.WriteLine("Student goes to lab 1");
                     model.Queues[0].Push(req, model.CurT);
                     if (model.Masters[0].IsFree())
                         model.AddEvent(new ELab1Done(model.CurT));
@@ -60,7 +59,6 @@ namespace lab6
 
                 case 1:
                     // Student goes to lab 2
-                    // Console.WriteLine("Student goes to lab 2");
                     model.Queues[1].Push(req, model.CurT);
                     if (model.Masters[1].IsFree() && model.Masters[2].IsFree())
                         model.AddEvent(new ELab2Done(model.CurT, 1 + rnd.Next() % 2));
@@ -72,7 +70,6 @@ namespace lab6
 
                 case 2:
                     // Student goes to exam
-                    // Console.WriteLine("Student goes to exam");
                     model.Queues[2].Push(req, model.CurT);
                     if (model.Lecturer.IsFree())
                         model.AddEvent(new EExamDone(model.CurT));
